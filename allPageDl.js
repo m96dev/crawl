@@ -1,5 +1,6 @@
 // original comment
 // webpage 一気にローカルにダウンロードするプログラムです。
+// $ node allPageDl.js > allPageDl.log
 
 // モジュールの読込
 var client = require('cheerio-httpcli');
@@ -10,13 +11,14 @@ var path = require('path');
 
 //共通の設定
 //階層の指定
-var LINK_LEVEL = 2;
+var LINK_LEVEL = 3;
 
 //基準となるページURL
 var TARGET_URL = "http://nodejs.jp/nodejs.org_ja/docs/v0.10/api/";
-var TARGET_URL = "https://health.dmkt-sp.jp/column/";
-var TARGET_URL = "http://health-mgr.sakura.ne.jp/column";
 var TARGET_URL = "http://health.eek.jp/column/"
+var TARGET_URL = "http://health-mgr.sakura.ne.jp/column";
+var TARGET_URL = "https://health.dmkt-sp.jp/column/";
+var TARGET_URL = "https://health.dmkt-sp.jp/";
 
 client.set('browser', 'iphone');
 
@@ -60,29 +62,36 @@ function downloadRec(url, level) {
   client.fetch(url, {}, function (err, $, res) {
     //リンクされているページを取得
     $("a").each(function (idx) {
-      console.log(idx);
+      // console.log(idx);
       //  タグのリンク先を得る
       var href = $(this).attr('href');
       // var curUrl = $(this).attr('href');
       // var pattern = url;
       var pattern = '/column/';
+      var pattern = '';
       // console.log(curUrl);
       if (href.startsWith(pattern)) {
+        if (href.startsWith('?')) {
+          return;
+        }
         // 前方一致のときの処理
         var metaViewport = $("meta[name='viewport']").attr();
+        if (!href) return; //href属性を取得できない時の処理
+        console.log('href '+href);
+        console.log('url '+url+href);
         // console.log(metaViewport);
         if (metaViewport.content === 'width=1024') {
           console.log('NG');
           console.log(metaViewport.content);
-          return count++;
         } else if (metaViewport.content === 'width=375') {
-        
-          console.log('ok');
-        };
+          console.log('OK');
+          console.log(metaViewport.content);
+          // return count++;
+        }else{
+          console.log(metaViewport.content);
+        }
 
         // console.log('count:'+count);
-        if (!href) return; //href属性を取得できない時の処理
-        console.log(href);
 
 
         // 絶対パスを相対パスに変更
@@ -90,6 +99,7 @@ function downloadRec(url, level) {
 
         //'#' 以降を無視する(a.html#aa と a.html#bb　は同じものとする)
         href = href.replace(/\#.+$/, "") //末尾の#を消す
+        href = href.replace(/\?/, "") //?を消す
 
         downloadRec(href, level + 1);
       }
@@ -110,7 +120,6 @@ function downloadRec(url, level) {
     //保存先のディレクトリが存在するか確認をする。
     checkSaveDir(savepath);
     console.log(savepath); //nodejs.jp/nodejs.org_ja/docs/v0.10/download
-
     fs.writeFileSync(savepath, $.html());
 
   });
