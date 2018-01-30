@@ -105,7 +105,14 @@ function downloadRec(url, level) {
         // console.log('count:'+count);
 
 
-        // 絶対パスを相対パスに変更
+        // var URL = require('url');
+        // ある URL から相対的な URL を絶対URLへ生成する場合には resolve メソッドを使用します。
+        // URL.resolve(from, to)
+        // 例えば、あるページ("http://h.com/foo/index.html")　にリンク
+        //                 (<a href="../bar/baz.html">xxxx</a>) があったとして
+        // そのリンク先の URL はどんな値になるかというのを調べるのに使えます。
+        //  href = URL.resolve("http://h.com/foo/index.html", "../bar/baz.html");
+        //  echo href; //  http://h.com/bar/baz.html
         href = URL.resolve(url, href);
 
         //'#' 以降を無視する(a.html#aa と a.html#bb　は同じものとする)
