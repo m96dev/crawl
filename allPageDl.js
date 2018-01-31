@@ -18,15 +18,19 @@ var TARGET_URL = "http://nodejs.jp/nodejs.org_ja/docs/v0.10/api/";
 var TARGET_URL = "http://health-mgr.sakura.ne.jp/column";
 var TARGET_URL = "https://health.dmkt-sp.jp/column/";
 var TARGET_URL = "http://do.local:8888/";
-var TARGET_URL = "http://health.eek.jp/column/"
 var TARGET_URL = "https://www.rakuten.ne.jp/gold/shopjapan/";
-var TARGET_URL = "https://health.dmkt-sp.jp/";
-
+var TARGET_URL = "http://health.eek.jp/";
+var TARGET_URL = "https://health.dmkt-sp.jp/";//
 client.set('browser', 'iphone');
+  // 'ie' | 'edge' | 'chrome' | 'firefox' |
+  // 'opera' | 'vivaldi' | 'safari' |
+  // 'ipad' | 'iphone' | 'ipod' | 'android' |
+  // 'googlebot'): boolean;
 // 以下を追加
 // client.debug = true;
 client.set('debug' ,true);
-
+exitFlg = true;
+exitCount = 30;
 //既出のサイトを定義する。(既出のサイトは無視をする機能があるため。)
 var list = {};
 
@@ -40,6 +44,8 @@ console.log('total ' + totalCount);
 
 //指定のurlを最大レベルlevelまでダウンロードする
 function downloadRec(url, level) {
+  if (!url.startsWith(TARGET_URL) && count>0) return;
+  // if (url.startsWith(TARGET_URL) && count>0) return;
   //最大レベルのチェックをする (最大レベルになるまでループさせるため)
   if (level >= LINK_LEVEL) return;
 
@@ -60,6 +66,7 @@ function downloadRec(url, level) {
   var base = us.join("/"); //joinメソッドは配列の各要素を指定の文字列で連結し、結果の文字列を返します。
   //  console.log(base);  //出力::http://nodejs.jp/nodejs.org_ja/docs/v0.10
 
+  console.log('url : ' + url);
   if (url.indexOf(base) < 0) return;
   //console.log(url.indexOf(base));
   //-----------------------------------------------------------
@@ -70,6 +77,7 @@ function downloadRec(url, level) {
     var $ =res.$;
     // client.fetchSync(url, {}, function (err, $, res) {
     //リンクされているページを取得
+    console.log('$("a")' + $("a"));
     $("a").each(function (idx) {
       // console.log(idx);
       //  タグのリンク先を得る
@@ -77,13 +85,12 @@ function downloadRec(url, level) {
       // var curUrl = $(this).attr('href');
       // var pattern = url;
       var pattern = '/column/';
-      var pattern = '';
+          pattern = '';
       // console.log(curUrl);
-      if (href.startsWith(pattern)) {
-        if (href.startsWith('?')) {
-          return;
-        }
+      if (href.startsWith(pattern) && url.startsWith(TARGET_URL)) {
+        if (href.startsWith('?')) return;
         count++;
+        if(exitFlg && (count === exitCount)) return false; //exit loop and method
         // 前方一致のときの処理
         var metaViewport = '';
         metaViewport = $("meta[name='viewport']").attr();
@@ -99,6 +106,7 @@ function downloadRec(url, level) {
           console.log(metaViewport.content);
           // return count++;
         } else {
+          console.log('wat??');
           console.log(metaViewport.content);
         }
 
@@ -144,7 +152,7 @@ function downloadRec(url, level) {
   // });// client.fetch END
   })// client.fetch END
   .catch(function (err) {
-    console.log(err);
+    console.log(err.url + ' ' + err.statusCode + ' ' + err.req._header );
   })
   .finally(function () {
     // 処理完了でもエラーでも最終的に必ず実行される
