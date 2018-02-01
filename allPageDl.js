@@ -1,7 +1,17 @@
 // original comment
 // webpage 一気にローカルにダウンロードするプログラムです。
 // $ node allPageDl.js > allPageDl.log
-
+/*
+find ./ -type f -name "*[content="width=1024"]*"
+grep [検索したい文字列] -rl [検索対象フォルダのパス]
+grep  width=1024  -rl ./
+grep  width=1024  -rl /Users/mono05/Documents/health/files/
+//                   ↓filename
+find . | xargs grep -n hogehoge
+//                    <filetype>
+find ./health.eek.jp/ -type f | xargs grep -n "width=1024"
+grep  width=1024  -rl ./
+*/
 // モジュールの読込
 var client = require('cheerio-httpcli');
 var request = require('request');
@@ -15,12 +25,15 @@ var LINK_LEVEL = 3;
 
 //基準となるページURL
 var TARGET_URL = "http://nodejs.jp/nodejs.org_ja/docs/v0.10/api/";
-var TARGET_URL = "http://health-mgr.sakura.ne.jp/column";
 var TARGET_URL = "https://health.dmkt-sp.jp/column/";
 var TARGET_URL = "http://do.local:8888/";
 var TARGET_URL = "https://www.rakuten.ne.jp/gold/shopjapan/";
+//sakura 
+var TARGET_URL = "http://health-mgr.sakura.ne.jp/column";
+var TARGET_URL = "http://health-mgr.sakura.ne.jp/";
 var TARGET_URL = "http://health.eek.jp/";
-var TARGET_URL = "https://health.dmkt-sp.jp/";//
+// D
+// var TARGET_URL = "https://health.dmkt-sp.jp/";//
 client.set('browser', 'iphone');
   // 'ie' | 'edge' | 'chrome' | 'firefox' |
   // 'opera' | 'vivaldi' | 'safari' |
@@ -29,11 +42,10 @@ client.set('browser', 'iphone');
 // 以下を追加
 // client.debug = true;
 client.set('debug' ,true);
-exitFlg = true;
-exitCount = 30;
-//既出のサイトを定義する。(既出のサイトは無視をする機能があるため。)
-var list = {};
-
+var exitFlg = false;
+var exitCount = 5;
+//既出のサイトを定義する。(既出のサイトは無視をする)
+var list = [];
 var count = 0;
 
 //メイン処理
@@ -50,7 +62,18 @@ function downloadRec(url, level) {
   if (level >= LINK_LEVEL) return;
 
   //既出のサイトは無視をする。
-  if (list[url]) return;
+  console.log(list);
+  // var matchData = list.filter(function(item, index){
+  //   if (item == url && count>0) return true;
+  // });
+  var matchData = list.indexOf(url);
+
+  if (matchData  > 0 ) return true;
+  else list.push(url);
+  // マッチング用のURLリストを作成
+
+  console.log('matchData:'+ matchData);
+  // if (list[url]) return;
 
   //基準ページ以外なら無視をする
   //-----------------------------------------------------------
@@ -82,6 +105,7 @@ function downloadRec(url, level) {
       // console.log(idx);
       //  タグのリンク先を得る
       var href = $(this).attr('href');
+      // list[] = href;
       // var curUrl = $(this).attr('href');
       // var pattern = url;
       var pattern = '/column/';
@@ -96,7 +120,7 @@ function downloadRec(url, level) {
         metaViewport = $("meta[name='viewport']").attr();
         if (!href) return; //href属性を取得できない時の処理
         console.log('href ' + href);
-        console.log('url ' + url + href);
+        console.log('url + href ' + url + href);
         // console.log(metaViewport);
         if (metaViewport!=='' && metaViewport.content === 'width=1024') {
           console.log('NG');
@@ -128,9 +152,10 @@ function downloadRec(url, level) {
         href = href.replace(/\?/, ""); //?を消す
 
         downloadRec(href, level + 1);
+
       }
 
-    });
+    }); // $("a").each(
 
 
     // ページを保存 (ファイル名を決定する)
@@ -147,8 +172,10 @@ function downloadRec(url, level) {
     //保存先のディレクトリが存在するか確認をする。
     checkSaveDir(savepath);
     console.log(savepath); //nodejs.jp/nodejs.org_ja/docs/v0.10/download
+    // html として保存
     fs.writeFileSync(savepath, $.html());
 
+    
   // });// client.fetch END
   })// client.fetch END
   .catch(function (err) {
@@ -165,6 +192,7 @@ console.log(totalCount);
 function checkSaveDir(fname) {
   //ディレクトリ部分だけ取り出す
   var dir = path.dirname(fname);
+  console.log('dir :' + dir)
 
   //ディレクトリを再帰的に作成する。
   var dirlist = dir.split("/");
@@ -179,7 +207,7 @@ function checkSaveDir(fname) {
       fs.mkdirSync(p, function (err) {
         if (err) {
           console.log('error!!');
-          console.error(err);
+          console.error('fs.mkdirSync : ' + err);
           process.exit(1);
         } else {
           console.log('finished!!');
