@@ -44,8 +44,8 @@ client.set('browser', 'iphone');
 client.set('debug' ,true);
 var exitFlg = false;
 var exitCount = 5;
-//既出のサイトを定義する。(既出のサイトは無視をする)
-var list = [];
+// 既出のサイトを定義する。(既出のサイトは無視をする)
+var list = [], listPage = [];
 var count = 0;
 
 //メイン処理
@@ -160,23 +160,28 @@ function downloadRec(url, level) {
 
     // ページを保存 (ファイル名を決定する)
     if (url.substr(url.length - 1, 1) == '/') {
-      url += "index.html"; //インデックスを自動追加する。
+      url += "index.html"; // インデックスを自動追加する。
     }
 
     // console.log(url.split("/")); //[ 'http:',  '',  'nodejs.jp',  'nodejs.org_j  'docs',  'v0.10',  'download' ];
     // console.log(url.split("/").slice(2)); //[ 'nodejs.jp', 'nodejs.org_ja', 'docs', 'v0.10', 'download' ]
 
     var savepath = url.split("/").slice(2).join("/"); //slice::配列の一部を取り出して新しい配列を返します。
-    //  console.log(savepath); //nodejs.jp/nodejs.org_ja/docs/v0.10/download
+    //  console.log(savepath);               // nodejs.jp/nodejs.org_ja/docs/v0.10/download
 
-    //保存先のディレクトリが存在するか確認をする。
+    // 保存先のディレクトリが存在するか確認をする。
     checkSaveDir(savepath);
-    console.log(savepath); //nodejs.jp/nodejs.org_ja/docs/v0.10/download
+    console.log( 'savepath : ' + savepath ); // nodejs.jp/nodejs.org_ja/docs/v0.10/download
+
+    // 再確認、末尾がファイル名出ない場合は追加
+    savepath += (savepath.lastIndexOf('index.html'))? '':'index.html' ;    
     // html として保存
     fs.writeFileSync(savepath, $.html());
 
+    // WIP
+    if (listPage.indexOf(savepath)  > 0 ) return true;
+    else listPage.push(savepath);
     
-  // });// client.fetch END
   })// client.fetch END
   .catch(function (err) {
     console.log(err.url + ' ' + err.statusCode + ' ' + err.req._header );
