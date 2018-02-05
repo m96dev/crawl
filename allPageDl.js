@@ -10,6 +10,13 @@ grep  width=1024  -rl /Users/mono05/Documents/health/files/
 find . | xargs grep -n hogehoge
                       <filetype>
 find ./health.eek.jp/ -type f | xargs grep -n "width=1024"
+find ./files/ -type f | xargs grep -n "width=1024"
+
+# ファイルを検索して。Width=1024 のCanonicalURLを表示
+find ./files/ -type f -name *.cache | xargs grep -rl "width=1024" | xargs grep -r "canonical"
+# crawl folder
+find ./health.dmkt-sp.jp/ -type f -name index.html | xargs grep -rl "width=1024" | xargs grep -r "canonical"
+
 grep  width=1024  -rl ./
 */
 // モジュールの読込
