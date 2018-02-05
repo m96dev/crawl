@@ -26,9 +26,12 @@ var URL = require('url');
 var fs = require('fs');
 var path = require('path');
 
+var util = require('util')
+var writeFile = util.promisify(fs.writeFileSync);
+
 // 共通の設定
 // 階層の指定
-var LINK_LEVEL = 3;
+var LINK_LEVEL = 5;
 
 // 基準となるページURL
 var TARGET_URL = "http://nodejs.jp/nodejs.org_ja/docs/v0.10/api/";
@@ -143,6 +146,7 @@ function downloadRec(url, level) {
         href = href.replace(/\#.+$/, ""); // 末尾の#を消す
         href = href.replace(/\?/, "");    // ?を消す
 
+        // await downloadRec(href, level + 1);
         downloadRec(href, level + 1);
 
       }
@@ -167,7 +171,16 @@ function downloadRec(url, level) {
     // 再確認、末尾がファイル名出ない場合は追加
     savepath += (savepath.lastIndexOf('index.html'))? '':'index.html' ;    
     // html として保存
-    fs.writeFileSync(savepath, $.html());
+    // fs.writeFileSync(savepath, $.html());
+
+    writeFile(savepath, $.html())
+    // readFile('./package.json')
+      // .then((json) => JSON.parse(json))
+      // .then((json) => JSON.parse(json))
+      // .then((json) => console.log(json))
+      .then((resWrite) => console.log('writeFile' +resWrite))
+      .catch((errWrite) => console.log('writeFileError!!', errWrite)); // a.json が不正ならここで SyntaxError が出る
+
 
     // WIP
     if (listPage.indexOf(savepath)  > 0 ) return true;
