@@ -12,7 +12,7 @@ find . | xargs grep -n hogehoge
 find ./health.eek.jp/ -type f | xargs grep -n "width=1024"
 find ./files/ -type f | xargs grep -n "width=1024"
 
-# ファイルを検索して。Width=1024 のCanonicalURLを表示
+# cacheファイルを検索して。Width=1024 のCanonicalURLを表示
 find ./files/ -type f -name *.cache | xargs grep -rl "width=1024" | xargs grep -r "canonical"
 # crawl folder
 find ./health.dmkt-sp.jp/ -type f -name index.html | xargs grep -rl "width=1024" | xargs grep -r "canonical"
@@ -44,7 +44,7 @@ var TARGET_URL = "http://health-mgr.sakura.ne.jp/";
 var TARGET_URL = "http://health.eek.jp/";
 // D
 var TARGET_URL = "https://health.dmkt-sp.jp/";//
-var TARGET_URL = "https://health.dmkt-sp.jp/qa/";//
+// var TARGET_URL = "https://health.dmkt-sp.jp/qa/";//
 client.set('browser', 'iphone');
   // 'ie' | 'edge' | 'chrome' | 'firefox' |
   // 'opera' | 'vivaldi' | 'safari' |
@@ -176,14 +176,13 @@ function downloadRec(url, level) {
     writeFile(savepath, $.html())
     // readFile('./package.json')
       // .then((json) => JSON.parse(json))
-      // .then((json) => JSON.parse(json))
       // .then((json) => console.log(json))
       .then((resWrite) => console.log('writeFile' +resWrite))
       .catch((errWrite) => console.log('writeFileError!!', errWrite)); // a.json が不正ならここで SyntaxError が出る
 
 
     // WIP
-    if (listPage.indexOf(savepath)  > 0 ) return true;
+    if (listPage.indexOf(savepath) > 0 ) return true;
     else listPage.push(savepath);
     
   })// client.fetch END
