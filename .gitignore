@@ -3,7 +3,6 @@ ex/
 node_modules/
 health.eek.jp/
 health-mgr.sakura.ne.jp/
-health.dmkt-sp.jp/
 do.local:8888
 !.vscode
 
