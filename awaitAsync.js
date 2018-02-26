@@ -2,12 +2,11 @@
 const util = require('util')
 const fs = require('fs')
 
-const readFile = util.promisify(fs.readFile);
+const readFile = util.promisify(fs.readFile)
 readFile('./package.json')
   .then((json) => JSON.parse(json))
   .then((json) => console.log(json))
-  .catch((e) => console.error('error!!', e)); // a.json が不正ならここで SyntaxError が出る
-
+  .catch((e) => console.error('error!!', e)) // a.json が不正ならここで SyntaxError が出る
 
 // // async-await 版だとこうなります。
 
