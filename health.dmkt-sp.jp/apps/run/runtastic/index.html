@@ -33,7 +33,7 @@ var CCM_REL = "";
 <meta property="fb:app_id" content="1299023373487827">
 <meta name="twitter:card" content="summary">
 <meta name="og:locale" content="ja_JP">
-<meta name="og:updated_time" content="2017-05-23T11:58:32+09:00">
+<meta name="og:updated_time" content="2018-02-16T14:38:35+09:00">
 <style type="text/css"> 
 #header {background-repeat:no-repeat; } 
 #footer {background-repeat:no-repeat; } 
@@ -41,12 +41,15 @@ var CCM_REL = "";
 <link rel="stylesheet" type="text/css" href="/concrete/css/jquery.ui.css">
 <base href="https://health.dmkt-sp.jp/">
   <link rel="canonical" href="https://health.dmkt-sp.jp/apps/run/runtastic/">
-<meta name="viewport" content="width=375"><!-- Site Header Content //-->
+<meta name="viewport" content="width=375">
+<!-- Site Header Content //-->
 <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
-<link rel="stylesheet" media="screen" type="text/css" href="/files/cache/css/dhp/main.css">
-<script type="text/javascript" src="/themes/dhp/js/js.cookie-2.1.3.min.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_api_endpoints.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_dpoint_common.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_dpoint_header.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_contract_common.js"></script></head>
+<link rel="stylesheet" media="screen" type="text/css" href="/themes/dhp/main.css">
+<link rel="stylesheet" media="screen" type="text/css" href="/themes/dhp/dashboard.css">
+<script type="text/javascript" src="/themes/dhp/js/dhrp_api_endpoints.js"></script>
+<script type="text/javascript" src="/themes/dhp/js/js.cookie-2.1.3.min.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_dpoint_common.js"></script><script type="text/javascript" src="/themes/dhp/js/dhrp_dpoint_header.js"></script></head>
 
-<body class="apps_entry runtastic">
+<body class="apps_entry runtastic member_nologin os_ios auth_error">
 <!-- Google Tag Manager-->
 <noscript>
 <iframe src="//www.googletagmanager.com/ns.html?id=GTM-M4JBMJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -68,199 +71,167 @@ var CCM_REL = "";
 <header role="banner">
 	<div id="header" class="clearfix ccm-block-styles">
 
-<div id="HTMLBlock5035" class="HTMLBlock">
+<div id="HTMLBlock5247" class="HTMLBlock">
 <!----------------------ここから----------------------------->
 <div id="js-headerfix">
- <div id="" class="headerTop" style="background: #14a6a0;">
-  <div class="wrap clearfix">
-    <div class="left">
-      <div><a href="/" id="header_home"><img class="spNone" src="/files/incoming/header_dhrp_logo_01.png" width="361" height="29" alt="dヘルスケアパック"><img class="pcNone" src="/files/incoming//header_dhrp_logo_sp_01.png" width="137.5" height="34.5" alt="dヘルスケアパック"></a></div>
-    </div>
-    <div class="right">
-      <!-- dアカウント-->
-      <div id="point_header_block" class="dhrp_global_daccount">
-        <!-- 未認証 -->
-        <div id="docomoid_block_daccountlogin" class="inner" style="display: none;">
-          <a id="header_login" href="https://www.mydocomo.com/auth/cgi/mltdomanidlogin?rl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
-            <div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
-            <div id="sign_on" class="body">ログイン/発行する</div>
-          </a>
-        </div>
-        <!-- 非会員 -->
-        <div id="docomoid_block_unissued" class="inner" style="display: none;">
-          <a href="https://d.dmkt-sp.jp/common/mypage/index.html?dcp=exaoth000527&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
-            <div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
-            <div id="maskdocomoid_unissued" class="body">
-              <div class="dhrp_global_daccount__box">
-                <div class="dhrp_global_daccount__box-left">未発行</div>
-                <!--<div class="dhrp_global_daccount__box-right">dアカウントって？</div>-->
-                <div class="dhrp_global_daccount__rankimage"></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- 会員 -->
-        <div id="docomoid_block_daccount" class="inner" style="display: none;">
-          <a href="https://d.dmkt-sp.jp/common/mypage/index.html?dcp=exaoth000527&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
-            <div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
-            <div id="maskdocomoid" class="body">----</div>
-            <div class="dhrp_global_daccount__rankimage"></div>
-          </a>
-        </div>
-      <!--/div#point_header_block-->
-      </div><!--
-    --><div class="dhrp_global_header-point">
-        <a id="header_dpoint" href="https://d.dmkt-sp.jp/common/dpoint/index.html?dcp=exaoth000419&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="inner">
-          <div id="dpoint_unauthenticated" style="display: none;">ご利用可能ポイント</div>
-          <!-- dポイント-->
-          <dl id="dpoint_block" style="display: none;">
-            <dt><img src="/files/incoming/dhrp_dpoint.png" width="51" height="13" alt="dポイント" class="dhrp_global_header-point__image"></dt>
-            <dd><div id="total_lmt_avail_pt">----</div><span class="dhrp_global_header-point__text">P</span></dd>
-          </dl>
-          <dl id="docomopoint_block" class="" style="display: none;">
-            <dt><img src="/files/incoming/dhrp_docomopoint.png" width="113" height="28" alt="ドコモポイント" class="dhrp_global_header-point__image"></dt>
-            <dd><div id="avail_pt">----</div><span class="dhrp_global_header-point__text">P</span></dd>
-          </dl>
-        </a>
-      </div><!--
-    --><div class="header-campaign dhrp_wrapper-onlyNotMember dhrpConversionLink">
-        <a class="inner" href="https://www.mydocomo.com/dcm/dfw/web/portal/pub2/MYDPS-TR0001.do?link_url=https%3A%2F%2Fwww.mydocomo.com%2Fdcm%2Fdfw%2Fapplication%2FVIEW_ESITE%2Fest%2Fsc%2Fmain.jsp%3Fnid%3DESG401001PJP%26osid%3DOSESG401001PJP01%26svcid%3DC0616" id="header_cv">初回 31日間無料お試し</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="spNone">
-	<div class="headerBottom">
-	  <div class="wrap">
-		<nav id="global-nav">
-		  <ul>
-			<li class="gnav01"><a href="/about" id="header_about">初めての方へ<br><span class="alphabet">ABOUT</span></a></li><!--
-		  --><li class="gnav02"><a href="/apps" id="header_apps">使えるアプリ<br><span class="alphabet">APPS</span></a></li><!--
-		  --><li class="gnav04"><a href="/column" id="header_column">健康コラム<br><span class="alphabet">COLUMN</span></a></li><!--
-		  --><li class="gnav03"><a href="/member" id="header_member">限定特典<br><span class="alphabet">MEMBERS ONLY</span></a></li><!--
-		  --><li class="gnav05"><a href="/campaign" id="header_campaign">キャンペーン<br><span class="alphabet">CAMPAIGN</span></a></li><!--
-		  --><li class="gnav06"><a href="/qa" id="header_faq">よくあるご質問<br><span class="alphabet">FAQ</span></a></li>
-		  </ul>
-		</nav>
-		<div class="global-share">
-		  <div class="item alphabet">SHARE</div>
-		  <div class="item line"><a href="http://line.me/R/msg/text/?https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_line_01.png" alt=""></a></div>
-		  <div class="item fb"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_facebook_01.png" alt=""></a></div>
-		  <div class="item tw">
-			<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhealth.dmkt-sp.jp%2F&text=%E3%81%8B%E3%82%89%E3%81%9F%E3%82%99%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%83%88%E3%82%AF%E3%82%92%20%E5%81%A5%E5%BA%B7%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%81%8B%E3%82%99%20%E4%BD%BF%E3%81%84%E6%94%BE%E9%A1%8C%20%7C%20d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF&hashtags=d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF" target="_blank"><img src="/files/incoming/ico_twitter_01.png" alt=""></a>
-		  </div>
+	<div id="" class="headerTop" style="background: #14a6a0;">
+		<div class="wrap clearfix">
+			<div class="left">
+				<div><a href="/" id="header_home"><img class="spNone" src="/files/incoming/header_dhrp_logo_01.png" width="361" height="29" alt="dヘルスケアパック"><img class="pcNone" src="/files/incoming//header_dhrp_logo_sp_01.png" width="137.5" height="34.5" alt="dヘルスケアパック"></a></div>
+			</div>
+			<div class="right">
+				<!-- dアカウント-->
+				<div id="point_header_block" class="dhrp_global_daccount">
+					<!-- 未認証 -->
+					<div id="docomoid_block_daccountlogin" class="inner">
+						<a id="header_login" href="https://www.mydocomo.com/auth/cgi/mltdomanidlogin?rl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
+							<div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
+							<div id="sign_on" class="body">ログイン/発行する</div>
+						</a>
+					</div>
+					<!-- 非会員 -->
+					<div id="docomoid_block_unissued" class="inner">
+						<a href="https://d.dmkt-sp.jp/common/mypage/index.html?dcp=exaoth000527&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
+							<div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
+							<div id="maskdocomoid_unissued" class="body">
+								<div class="dhrp_global_daccount__box">
+									<div class="dhrp_global_daccount__box-left">未発行</div>
+									<!--<div class="dhrp_global_daccount__box-right">dアカウントって？</div>-->
+									<div class="dhrp_global_daccount__rankimage"></div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- 会員 -->
+					<div id="docomoid_block_daccount" class="inner">
+						<a href="https://d.dmkt-sp.jp/common/mypage/index.html?dcp=exaoth000527&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link">
+							<div class="head"><img src="/files/incoming/dhrp_gdaccount.png" width="67" height="15" alt="dアカウント" class="dhrp_global_daccount__image"></div>
+							<div id="maskdocomoid" class="body">----</div>
+							<div class="dhrp_global_daccount__rankimage"></div>
+						</a>
+					</div>
+					<!--/div#point_header_block-->
+				</div><!--
+				--><div class="dhrp_global_header-point">
+				<a id="header_dpoint" href="https://d.dmkt-sp.jp/common/dpoint/index.html?dcp=exaoth000419&backurl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="inner">
+					<div id="dpoint_unauthenticated" style="display: none;">ご利用可能ポイント</div>
+					<!-- dポイント-->
+					<dl id="dpoint_block" style="display: none;">
+						<dt><img src="/files/incoming/dhrp_dpoint.png" width="51" height="13" alt="dポイント" class="dhrp_global_header-point__image"></dt>
+						<dd><div id="total_lmt_avail_pt">----</div><span class="dhrp_global_header-point__text">P</span></dd>
+					</dl>
+					<dl id="docomopoint_block" class="" style="display: none;">
+						<dt><img src="/files/incoming/dhrp_docomopoint.png" width="113" height="28" alt="ドコモポイント" class="dhrp_global_header-point__image"></dt>
+						<dd><div id="avail_pt">----</div><span class="dhrp_global_header-point__text">P</span></dd>
+					</dl>
+				</a>
+			</div><!--
+			--><div class="header-campaign dhrp_wrapper-onlyNotMember dhrpConversionLink">
+				<a class="inner" href="https://www.mydocomo.com/dcm/dfw/web/portal/pub2/MYDPS-TR0001.do?link_url=https%3A%2F%2Fwww.mydocomo.com%2Fdcm%2Fdfw%2Fapplication%2FVIEW_ESITE%2Fest%2Fsc%2Fmain.jsp%3Fnid%3DESG401001PJP%26osid%3DOSESG401001PJP01%26svcid%3DC0616" id="header_cv">初回 31日間無料お試し</a>
+			</div>
+			</div>
 		</div>
-	  </div>
+	</div>
+
+	<div class="spNone">
+		<div class="headerBottom">
+			<div class="wrap">
+				<nav id="global-nav">
+					<ul>
+						<li class="gnav01"><a href="/about" id="header_about">初めての方へ<br><span class="alphabet">ABOUT</span></a></li><!--
+						--><li class="gnav02"><a href="/apps" id="header_apps">使えるアプリ<br><span class="alphabet">APPS</span></a></li><!--
+						--><li class="gnav04"><a href="/column" id="header_column">健康コラム<br><span class="alphabet">COLUMN</span></a></li><!--
+						--><li class="gnav03"><a href="/member" id="header_member">限定特典<br><span class="alphabet">MEMBERS ONLY</span></a></li><!--
+						--><li class="gnav05"><a href="/campaign" id="header_campaign">キャンペーン<br><span class="alphabet">CAMPAIGN</span></a></li><!--
+						--><li class="gnav06"><a href="/qa" id="header_faq">よくあるご質問<br><span class="alphabet">FAQ</span></a></li>
+					</ul>
+				</nav>
+				<div class="global-share">
+					<div class="item alphabet">SHARE</div>
+					<div class="item line"><a href="http://line.me/R/msg/text/?https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_line_01.png" alt=""></a></div>
+					<div class="item fb"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_facebook_01.png" alt=""></a></div>
+					<div class="item tw">
+						<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhealth.dmkt-sp.jp%2F&text=%E3%81%8B%E3%82%89%E3%81%9F%E3%82%99%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%83%88%E3%82%AF%E3%82%92%20%E5%81%A5%E5%BA%B7%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%81%8B%E3%82%99%20%E4%BD%BF%E3%81%84%E6%94%BE%E9%A1%8C%20%7C%20d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF&hashtags=d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF" target="_blank"><img src="/files/incoming/ico_twitter_01.png" alt=""></a>
+					</div>
+				</div>
+				<!--<a href="/health/auth/bodyrecord/" class="bottomDashboard spNone" id="header_bodyrecord">
+					<div class="icn"><img src="/themes/dhp/images/header_dhrp_dashboard.png" alt=""/></div>
+					<div class="txt">
+						<p class="jp">からだの記録</p>
+						<p class="en">DASHBOARD</p>
+					</div>
+				</a>-->
+
+			</div>
+		</div>
 	</div>
 </div>
-	</div>
 
-<script>
-$(function() {
-  var $win = $(window),
-      $main = $('main'),
-      $nav = $('.nave_fix, #nave_fix'),
-      navHeight = $nav.outerHeight(),
-      navPos = $nav.offset().top,
-      fixedClass = 'is-fixed';
 
-  $win.on('load scroll', function() {
-    var value = $(this).scrollTop();
-    if ( value > navPos ) {
-      $nav.addClass(fixedClass);
-      $main.css('margin-top', navHeight);
-    } else {
-      $nav.removeClass(fixedClass);
-      $main.css('margin-top', '0');
-    }
-  });
-});
-</script>
-<style>
-main {
-    margin-top: 52px;
-}
-	@media only screen and (min-width: 741px){
-div#content {
-    margin-top: 52px;
-}
-		}
-.is-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-}
-		.nave_fix{
-			z-index: 4;
-		}
-</style>
 <div class="pcNone">
-  	<div class="headerBottom nave_fix">
-	  <div class="wrap">
-		<nav id="global-nav">
-		  <ul>
-			<li class="gnav01"><a href="/about" id="header_about">初めての方へ<br><span class="alphabet">ABOUT</span></a></li><!--
-		  --><li class="gnav02"><a href="/apps" id="header_apps">使えるアプリ<br><span class="alphabet">APPS</span></a></li><!--
-		  --><li class="gnav04"><a href="/column" id="header_column">健康コラム<br><span class="alphabet">COLUMN</span></a></li><!--
-		  --><li class="gnav03"><a href="/member" id="header_member">限定特典<br><span class="alphabet">MEMBERS ONLY</span></a></li><!--
-		  --><li class="gnav05"><a href="/campaign" id="header_campaign">キャンペーン<br><span class="alphabet">CAMPAIGN</span></a></li><!--
-		  --><li class="gnav06"><a href="/qa" id="header_faq">よくあるご質問<br><span class="alphabet">FAQ</span></a></li>
-		  </ul>
-		</nav>
-		<div class="global-share">
-		  <div class="item alphabet">SHARE</div>
-		  <div class="item line"><a href="http://line.me/R/msg/text/?https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_line_01.png" alt=""></a></div>
-		  <div class="item fb"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_facebook_01.png" alt=""></a></div>
-		  <div class="item tw">
-			<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhealth.dmkt-sp.jp%2F&text=%E3%81%8B%E3%82%89%E3%81%9F%E3%82%99%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%83%88%E3%82%AF%E3%82%92%20%E5%81%A5%E5%BA%B7%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%81%8B%E3%82%99%20%E4%BD%BF%E3%81%84%E6%94%BE%E9%A1%8C%20%7C%20d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF&hashtags=d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF" target="_blank"><img src="/files/incoming/ico_twitter_01.png" alt=""></a>
-		  </div>
+	<div class="headerBottom nave_fix">
+		<div class="wrap">
+			<nav id="global-nav">
+				<ul>
+					<li class="gnav01"><a href="/about" id="header_about">初めての方へ<br><span class="alphabet">ABOUT</span></a></li><!--
+				--><li class="gnav02"><a href="/apps" id="header_apps">使えるアプリ<br><span class="alphabet">APPS</span></a></li><!--
+				--><li class="gnav04"><a href="/column" id="header_column">健康コラム<br><span class="alphabet">COLUMN</span></a></li><!--
+				--><li class="gnav03"><a href="/member" id="header_member">限定特典<br><span class="alphabet">MEMBERS ONLY</span></a></li><!--
+				--><li class="gnav05"><a href="/campaign" id="header_campaign">キャンペーン<br><span class="alphabet">CAMPAIGN</span></a></li><!--
+				--><li class="gnav06"><a href="/qa" id="header_faq">よくあるご質問<br><span class="alphabet">FAQ</span></a></li>
+				</ul>
+			</nav>
+			<div class="global-share">
+				<div class="item alphabet">SHARE</div>
+				<div class="item line"><a href="http://line.me/R/msg/text/?https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_line_01.png" alt=""></a></div>
+				<div class="item fb"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" target="_blank"><img src="/files/incoming/ico_facebook_01.png" alt=""></a></div>
+				<div class="item tw">
+					<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhealth.dmkt-sp.jp%2F&text=%E3%81%8B%E3%82%89%E3%81%9F%E3%82%99%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%83%88%E3%82%AF%E3%82%92%20%E5%81%A5%E5%BA%B7%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%81%8B%E3%82%99%20%E4%BD%BF%E3%81%84%E6%94%BE%E9%A1%8C%20%7C%20d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF&hashtags=d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF" target="_blank"><img src="/files/incoming/ico_twitter_01.png" alt=""></a>
+				</div>
+			</div>
 		</div>
-	  </div>
 	</div>
-	
+
 </div>
 
 
 
 </div>
 <!-----------------------ここまで---------------------------->
-</div></header><div id="content">
-  <main role="main">
-    <div id="mainColumn" class="oneColumn">
-      
+</div>	<!-- ヘッダー固定時の調整ブロック-->
+	<div id="top_space_pc" class="spNone"></div>
+	<div id="top_space_sp" class="pcNone"></div>
+</header>
+<div id="content">
+	<main role="main">
+		<div id="mainColumn" class="oneColumn">
+
     <!-- ビジュアル -->
     <div class="visualArea">
       <h1 class="visualContents">
 
 
 	<span class="spNone">
-	<img src="/files/1914/9455/8083/visual_pc_runtastic_01.jpg" width="1500" height="450" alt="もっと走りたくなる機能満載！世界中で活用されるランアプリ">
+	<img src="/files/2415/1429/2924/visual_pc_runtastic_01.jpg" width="1500" height="450" alt="もっと走りたくなる機能満載！世界中で活用されるランアプリ">
 	</span>
 
 	<span class="pcNone">
-	<img src="/files/4414/9455/8084/visual_sp_runtastic_01.jpg" width="750" height="720" alt="もっと走りたくなる機能満載！世界中で活用されるランアプリ">
+	<img src="/files/4015/1429/2940/visual_sp_runtastic_01.jpg" width="750" height="720" alt="もっと走りたくなる機能満載！世界中で活用されるランアプリ">
 	</span>
 
       </h1>
     </div>
 
 
-      <div class="breadcrumbs">
+<div class="breadcrumbs">
 	<div class="wrap">
 		<ul>
 <li><a href="/" target="_self" id="breadcrumb_home">ホーム</a></li><li><a href="/apps/" target="_self" id="breadcrumb_apps">使えるアプリ</a></li><li><a href="/apps/run/" target="_self" id="breadcrumb_apps_run">ランニング</a></li><li>Runtastic</li>		</ul>
 	</div>
 </div>
-    <!-- ダウンロードエリア -->
-    <div class="dlAppArea pcNone dhrp_wrapper-onlyMember">
-      <ul class="dlList">
-        <li class="box"><a id="apps_runtastic_google" href="https://rbt.runtastic.com/v1/referral/?key=c7140144f14e3ecec56c6dd57e7d458f&target=runtastic⌖link=https%3A%2F%2Fwww.runtastic.com%2Fapps%2Fandroid%2Fruntastic%2Flite&utm_source=docomo&utm_medium=link&utm_campaign=docomo"><img src="/themes/dhp/images/app_dlbtn_android.png" alt="ダウンロードする Androidの方はこちら"></a></li>        <li class="box"><a id="apps_runtastic_apple" href="https://rbt.runtastic.com/v1/referral/?key=c7140144f14e3ecec56c6dd57e7d458f&target=runtastic⌖link=https%3A%2F%2Fwww.runtastic.com%2Fapps%2Fiphone%2Fruntastic%2Flite&utm_source=docomo&utm_medium=link&utm_campaign=docomo"><img src="/themes/dhp/images/app_dlbtn_iphone.png" alt="ダウンロードする iPhoneの方はこちら"></a></li>      </ul>
-    </div>
 
-      
+
+			
 <!-- topTitle -->
     <div class="topTitle">
 
@@ -432,7 +403,7 @@ dポイントが貯まる</h3>
 	<p class="text">Runtasticアプリと連携してペースや走行距離を手元で確認。ご契約者の方なら特別価格でご提供！</p>
 
 	<div class="link">
-	<a href="https://health.dmkt-sp.jp/member/009/" class="linkStyle01">ご契約者限定特典の詳細を見る</a>
+	<a href="https://health.dmkt-sp.jp/member/009/" class="linkStyle01">限定特典の詳細を見る</a>
 	</div>
 
 
@@ -446,29 +417,6 @@ dポイントが貯まる</h3>
     </div>
 
 
-
-    <!-- その他の便利な機能 -->
-    <div class="movieArea">
-      <div class="titStyle01">
-        <h2 class="title" style="color:#0273b8;">Runtasticを<br class="pcNone">ムービーでご紹介</h2>
-        <div class="sub">MOVIE</div>
-      </div>
-      <div class="image">
-
-
-	<a id="appsdetail_runtastic_youtube" class="popup-iframe" href="//www.youtube.com/watch?v=7uywu-YF49Q">
-
-	<span class="spNone">
-	<img src="/files/7314/9455/5562/movie_pc_02.jpg" width="1000" height="350" alt="Official MOVIE">
-	</span>
-
-	<span class="pcNone">
-	<img src="/files/5814/9455/5562/movie_sp_02.jpg" width="750" height="450" alt="Official MOVIE">
-	</span>
-
-        </a>
-      </div>
-    </div>
 
     <!-- 利用者の声 -->
     <div class="reviewArea">
@@ -542,51 +490,51 @@ dポイントが貯まる</h3>
 
 
 
-    <div class="relationArea">
-      <div class="wrap clearfix">
-                    <div class="recommendBox">
-          <h2 class="titStyle02">あなたにオススメのアプリ<span>RECOMMEND</span></h2>
-          <ul class="recommendList">
-                          <li><a href="/apps/walk/arutoku/" id="runtastic_recommendapps_arutoku">
-                <div class="image"><img src="/files/6514/8531/3149/icon_arutoku.png" alt=""></div>
-              <div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">歩いておトク</div>
-              </a></li>
-                          <li><a href="/apps/sleep/sleepbetter/" id="runtastic_recommendapps_sleepbetter">
-                <div class="image"><img src="/files/2114/8429/0338/icon_sleepbetter.png" alt=""></div>
-              <div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">Runtastic Sleep Better</div>
-              </a></li>
-                          <li><a href="/apps/fitness/results/" id="runtastic_recommendapps_results">
-                <div class="image"><img src="/files/2314/8428/9400/icon_rr.png" alt=""></div>
-              <div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">Runtastic Results</div>
-              </a></li>
-            
-          </ul>
-        </div>
-                        <div class="columnBox">
-          <h2 class="titStyle02">関連コラム<span>COLUMN</span></h2>
-          <ul class="columnList">
-                          <li class="box"><a href="/column/usage/0082/" id="runtastic_relatedcolumn_0082">
-                <div class="image"><img src="/files/2614/9619/7100/column_0082_thumbnail02.jpg" alt=""></div>
-                <div class="textArea">
-                  <p class="text">プロレスラー　LEONAさんが体験！＜Runtastic＞　ランニングに欠かせない「大事なバディ」</p>
-                </div>
-              </a></li>
-                          <li class="box"><a href="/column/run/0015/" id="runtastic_relatedcolumn_0015">
-                <div class="image"><img src="/files/1614/8541/2381/column_blog0015_thumbnail01.png" alt=""></div>
-                <div class="textArea">
-                  <p class="text">サブ４を目指すランナーはシューズを見直してみよう！</p>
-                </div>
-              </a></li>
-                      </ul>
-        </div>
-              </div>
-    </div>
+			<div class="relationArea">
+				<div class="wrap clearfix">
+					<div class="recommendBox">
+						<h2 class="titStyle02">あなたにオススメのアプリ<span>RECOMMEND</span></h2>
+						<ul class="recommendList">
+							<li><a href="/apps/walk/arutoku/" id="runtastic_recommendapps_arutoku">
+									<div class="image"><img src="/files/6514/8531/3149/icon_arutoku.png" alt=""></div>
+									<div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">歩いておトク</div>
+							</a></li>
+							<li><a href="/apps/sleep/sleepbetter/" id="runtastic_recommendapps_sleepbetter">
+									<div class="image"><img src="/files/3415/1369/9742/icon_sleepbetter.png" alt=""></div>
+									<div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">Runtastic Sleep Better</div>
+							</a></li>
+							<li><a href="/apps/fitness/results/" id="runtastic_recommendapps_results">
+									<div class="image"><img src="/files/6415/1370/0449/icon_rr.png" alt=""></div>
+									<div class="link"><img src="/themes/dhp/images/bullet_link_02.png" alt="">Runtastic Results</div>
+							</a></li>
 
+						</ul>
+					</div>
 
-    </div>
-  </main>
+					<div class="columnBox">
+						<h2 class="titStyle02">関連コラム<span>COLUMN</span></h2>
+						<ul class="columnList">
+							<li class="box"><a href="/column/exercise/0168/" id="runtastic_relatedcolumn_0168">
+									<div class="image"><img src="/files/6015/0811/8759/column_0168_thumbnail01.jpg" alt=""></div>
+									<div class="textArea">
+										<p class="text">体を動かす習慣で活発な体と心のリズムを手に入れる！</p>
+									</div>
+							</a></li>
+							<li class="box"><a href="/column/usage/0082/" id="runtastic_relatedcolumn_0082">
+									<div class="image"><img src="/files/2614/9619/7100/column_0082_thumbnail02.jpg" alt=""></div>
+									<div class="textArea">
+										<p class="text">プロレスラー　LEONAさんが体験！＜Runtastic＞　ランニングに欠かせない「大事なバディ」</p>
+									</div>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 </div>
-    <div class="topLinks">
+
+<div class="topLinks">
   <div class="wrap"><!--
   --><a id="back_home" href="/"><span>HOMEへ戻る</span></a><!--
   --><a id="back_apps" href="/apps/"><span>使えるアプリ一覧へ戻る</span></a><!--
@@ -596,7 +544,7 @@ dポイントが貯まる</h3>
 <footer role="contentinfo">
 	<div id="footer" class=" ccm-block-styles">
 
-<div id="HTMLBlock5042" class="HTMLBlock">
+<div id="HTMLBlock5280" class="HTMLBlock">
 <!--ここから-->
 <div class="wrap">
   <a id="footer_to-head" class="backToTop js-smoothScroll" href="#header">ページTOP</a>
@@ -609,7 +557,7 @@ dポイントが貯まる</h3>
             <li><a href="/" id="footer_home"><span class="menuText">HOME</span></a></li>
             <li><a href="/about" id="footer_about"><span class="menuText">初めての方へ</span></a></li>
             <li><a href="/apps" id="footer_apps"><span class="menuText">使えるアプリ</span></a></li>
-            <li><a href="/member" id="footer_member"><span class="menuText"><span class="pcNone">ご契約者</span>限定特典</span></a></li>
+            <li><a href="/member" id="footer_member"><span class="menuText">限定特典</span></a></li>
             <li><a href="/campaign" id="footer_campaign"><span class="menuText">キャンペーン</span></a></li>
           </ul>
           <ul class="menu list02">
@@ -643,9 +591,11 @@ dポイントが貯まる</h3>
           <div class="item tw"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhealth.dmkt-sp.jp%2F&text=%E3%81%8B%E3%82%89%E3%81%9F%E3%82%99%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%83%88%E3%82%AF%E3%82%92%20%E5%81%A5%E5%BA%B7%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%81%8B%E3%82%99%20%E4%BD%BF%E3%81%84%E6%94%BE%E9%A1%8C%20%7C%20d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF&hashtags=d%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%9A%E3%83%83%E3%82%AF" target="_blank"><img src="/files/incoming/ico_twitter_02.png" alt=""></a></div>
         </div>
         <!-- dアカウント-->
+        <!--
         <div id="footer-daccount" class="dhrp_wrapper-onlyNotMember loginBtn">
           <a href="https://www.mydocomo.com/auth/cgi/mltdomanidlogin?rl=https%3A%2F%2Fhealth.dmkt-sp.jp%2F" class="dhrp_global_daccount__link"><span id="sign_on02" class="body">ご契約済みの方はこちら（ログイン）</span></a>
         </div>
+        -->
       </div>
     </div>
   </div>
@@ -664,6 +614,7 @@ dポイントが貯まる</h3>
     --><li><a href="https://carshare.dmkt-sp.jp/portal/?utm_source=dmk_a&utm_medium=dmk&utm_campaign=dhealth_f" id="footer_dmarket_dcarshare" target="_blank">dカーシェア</a></li><!--
     --><li><a href="http://app.dcm-gate.com/?utm_source=dmktsp&utm_medium=footer&utm_campaign=healthcare" id="footer_dmarket_appli" target="_blank">dアプリ＆レビュー</a></li><!--
     --><li><a href="http://video.dmkt-sp.jp/?campaign=osh10000015" id="footer_dmarket_tv" target="_blank">dTV</a></li><!--
+    --><li><a href="https://dch.dmkt-sp.jp/?campaign=osh10000016" id="footer_dmarket_tvchannel" target="_blank">dTVチャンネル</a></li><!--
     --><li><a href="https://magazine.dmkt-sp.jp/?utm_source=web&utm_medium=dmkt_cmn&utm_campaign=footer_healthcare" id="footer_dmarket_magazine" target="_blank">dマガジン</a></li><!--
     --><li><a href="https://selection.music.dmkt-sp.jp/?affiliate=3580110029" id="footer_dmarket_hits" target="_blank">dヒッツ</a></li><!--
     --><li><a href="https://anime.dmkt-sp.jp/animestore/tp?lan=6&utm_source=healthcare&utm_medium=dMarket&utm_campaign=%E3%83%95%E3%83%83%E3%82%BF%E3%83%BC_%E3%82%A2%E3%83%8B%E3%83%A1%E3%82%B9%E3%83%88%E3%82%A2%E3%81%B8" id="footer_dmarket_anime" target="_blank">dアニメストア</a></li><!--
@@ -699,9 +650,10 @@ dポイントが貯まる</h3>
 <script type="text/javascript" src="/themes/dhp/js/jquery.rwdImageMaps.min.js"></script>
 <script type="text/javascript" src="/themes/dhp/js/slick.min.js"></script>
 <script type="text/javascript" src="/themes/dhp/js/common.js"></script>
-<script type="text/javascript" src="/themes/dhp/js/dlbtn.js"></script><script type="text/javascript" src="/themes/dhp/js/header.js"></script><script>var REL_DIR_FILES_TOOLS_PACKAGES="/index.php/tools/packages";var sbs_cID="201";</script>
+<script type="text/javascript" src="/themes/dhp/js/dlbtn.min.js"></script><script type="text/javascript" src="/themes/dhp/js/header.js"></script><script>var REL_DIR_FILES_TOOLS_PACKAGES="/index.php/tools/packages";var sbs_cID="201";</script>
 <script type="text/javascript" src="/concrete/js/jquery.ui.js"></script>
 <script type="text/javascript" src="/packages/skybluesofa_page_list_plus/js/arbiter.js"></script>
 <script type="text/javascript" src="/packages/skybluesofa_page_list_plus/js/arbiter_page_list_plus.js"></script>
+
 </body>
 </html>
